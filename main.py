@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import json
+from keep_alive import keep_alive 
 
 client = discord.Client()
 my_secret = os.environ['BOT_TOKEN']
@@ -28,4 +29,5 @@ async def on_message(message):
   if message.content.startswith('$inspire'):
     await message.channel.send(get_quote())
 
+keep_alive()
 client.run(my_secret)
